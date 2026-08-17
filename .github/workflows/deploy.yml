@@ -1,0 +1,15 @@
+name: Deploy Local
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build and deploy
+        run: docker compose up --build -d
